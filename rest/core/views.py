@@ -7,7 +7,9 @@ from .serializers import ProdutoSerializer
 
 def index(request):
 
-    return render(request, 'base.html')
+    produto_list = Produto.objects.all()
+
+    return render(request, 'produto.html', {'produto_list': produto_list})
 
 
 # modificado views

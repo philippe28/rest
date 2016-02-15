@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} lista produto {% endblock title %}
+
+{% block top %} lista produto {% endblock top %}
+
+{% block body %}
+{
+
+<table>
+	<thead>
+		<tr>
+			<th>Título</th>
+			<th>Descriçao</th>
+			<th>Status</th>
+			<th>Nome</th>
+			<th>E-Mail</th>
+			<th>Ações</th>
+		</tr>
+	</thead>
+	<tbody>
+		{%for Produto in produto_list%}
+			<tr>
+
+				<td>{{Produto.cpu}}</td>
+				<td>{{Produto.memoria}}</td>
+				<td>{{Produto.disco}}</td>
+				<td>{{Produto.so}}</td>
+				<td>{{Produto.preco}}</td>
+				<td>{{Produto.provedores}}</td>
+			</tr>
+	</tbody>
+		{%endfor%}
+
+</table>
+{%endblock body%}
+{%block footer%} Todos os direitos reservados {%endblock%}
+
+
+nome = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             null=True, blank=True)
+    cpu = models.IntegerField(default=1)
+    memoria = models.IntegerField(default=4)
+    disco = models.IntegerField(default=250)
+    so = models.CharField(max_length=50)
+    preco = models.DecimalField(max_digits=9, decimal_places=2)
+    provedores = models.CharField(max_length=150)
+    release = models.DateTimeField(u'lançamento')
