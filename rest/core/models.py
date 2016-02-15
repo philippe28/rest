@@ -1,9 +1,12 @@
 from django.db import models
 from django.core.urlresolvers import reverse_lazy
 
+from django.conf import settings
 
 class Produto(models.Model):
 
+    nome = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             null=True, blank=True)
     cpu = models.IntegerField(default=1)
     memoria = models.IntegerField(default=4)
     disco = models.IntegerField(default=250)

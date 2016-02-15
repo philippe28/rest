@@ -1,5 +1,6 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework.routers import DefaultRouter
 
 from . import views
 
@@ -10,3 +11,7 @@ urlpatterns = [
 
 
 ]
+
+
+router = DefaultRouter()
+router.register(r'rest', views.ProdutoViewSet)
